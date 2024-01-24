@@ -4,7 +4,9 @@
 
 <script setup>
 import { ref, onMounted,defineExpose } from 'vue';
-import  Loader  from "@googlemaps/js-api-loader"
+import * as GMaps from '@googlemaps/js-api-loader'
+const { Loader } = GMaps
+
 const config = useRuntimeConfig();
 
 
