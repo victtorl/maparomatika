@@ -5,6 +5,9 @@ export default defineNuxtConfig({
    carousel: {
     prefix: 'MyPrefix'
   },
+  build: {
+    transpile: ['sample-library']
+  },
   gtag : {
     id: "G-LMPEGPYNK6",
   },
