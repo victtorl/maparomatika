@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "build:dev": "nuxt build --dotenv .env.development",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "serve": "node ./.output/server/index.mjs"
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^5.0.0-4",
+    "autoprefixer": "^10.4.16",
+    "nuxt": "^3.8.1",
+    "nuxt-gtag": "^1.1.1",
+    "nuxt-headlessui": "^1.1.4",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.5",
+    "vue": "^3.3.9",
+    "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@googlemaps/js-api-loader": "^1.16.2",
+    "@pinia/nuxt": "^0.5.1",
+    "@vue/shared": "^3.3.9",
+    "@vuepic/vue-datepicker": "^7.4.1",
+    "@vueuse/core": "^10.7.0",
+    "pinia": "^2.1.7"
+  }
+}

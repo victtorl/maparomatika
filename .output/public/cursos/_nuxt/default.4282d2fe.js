@@ -1,0 +1,1 @@
+import{r,ab as o,R as a}from"./entry.27834779.js";import{u as s}from"./routest.d3eac0ee.js";const _={__name:"default",setup(u){r(Boolean);const e=o();return s().setrouteparam(e.name),(t,m)=>a(t.$slots,"default")}};export{_ as default};
