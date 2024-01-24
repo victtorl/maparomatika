@@ -4,7 +4,7 @@
 
 <script setup>
 import { ref, onMounted, defineExpose } from 'vue';
-import { Loader } from "@googlemaps/js-api-loader"
+import  Loader  from "@googlemaps/js-api-loader"
 import { useRutasStore } from '@/stores/ruta'
 
 const config = useRuntimeConfig();
