@@ -1,11 +1,27 @@
 <template>
 
-    <div class="flex w-full container h-8 bg-[#e6e4e4] font-semibold text-center items-center text-[#9399ab] mx-auto mt-16 font-opensans"> 
-      <p class="pl-4 font-extrabold">HOME>OPERACIONES>Geolocalizacion>Monitoreo Online</p>
+    <div class="flex w-full  h-8 bg-[#e6e4e4] font-semibold text-center items-center text-[#9399ab]  font-opensans"> 
+      <div class="flex text-[12px] sm:text-sm pl-3 lg:justify-center lg:items-center">
+        <div class="flex gap-x-[2px] w-auto">
+          <p class="  font-extrabold">HOME</p>
+          <p class="  font-extrabold">></p>
+        </div>
+        <div class="flex gap-x-[2px] w-auto">
+          <p class="  font-extrabold">OPERACIONES</p>
+          <p class="  font-extrabold">></p>
+        </div>
+        <div class="flex gap-x-[2px] w-auto">
+          <p class="  font-extrabold">Geolocalizacion</p>
+          <p class="  font-extrabold">></p>
+        </div>
+        <div class="flex gap-x-[2px] w-auto">
+          <p class="w--500 font-extrabold">Monitoreo Online</p>
+        </div>
+      </div>
     </div>
-    <div class="flex w-full container  mx-auto">
+    <div class="flex flex-col lg:flex-row  ">
           <!-- PARTE IZQUIERDA  -->
-          <div class="w-[40%] border-[1px] border-[#DFDFDF] p-3">
+          <div class="w-[100%] lg:w-[40%] border-[1px] border-[#DFDFDF] p-3">
             <div class="flex  justify-between items-center px-2 py-2 bg-[#4B77BE]">
               <div class="flex gap-1">
                 <p>📌</p>
@@ -52,7 +68,7 @@
             </div>
           </div>
           <!-- PARTE DERECHA  -->
-          <div class="w-[60%]">
+          <div class="container w-[100%] lg:w-[60%] h-[60vh] lg:h-auto  p-3 lg:p-0 border-[1px] ">
           <InitialMap ref="sendUbiRef"/>
           </div>
     </div>
