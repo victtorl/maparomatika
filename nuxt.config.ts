@@ -36,7 +36,7 @@ export default defineNuxtConfig({
       siteUrl: process.env.NUXT_SITE_URL,
       mpPublicKey: process.env.MP_PUBLIC_KEY,
       bookmark: process.env.NUXT_PUBLIC_BOOKMARK,
-      apiBase: process.env.API_BASE,
+      apiBase: 'http://aromatika.ocamtech.com/api-v2',
       gtagId: process.env.GTAG_KEY,
       tawkId: process.env.TAWK_ID,
       tawkWigetId: process.env.TAWK_WIGET_ID,

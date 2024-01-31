@@ -48,12 +48,22 @@
                               </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                              <tr v-for="item in listaProvedores">
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">🔋</td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">📶</td>
+                              <tr   v-for="item in geolocalizacionST.geousuarios">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                 <div class="flex flex-col" >
+                                   <p class="text-[12px]">{{ item.battery }}%</p>
+                                   <p>🔋</p>
+                                 </div>
+                                </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
+                                   <div class="flex flex-col" >
+                                     <p class="text-[12px]">{{ item.senal }}%</p>
+                                     <p>📶</p>
+                                   </div>
+                                  </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200 cursor-pointer "
-                                    @click="handleUbic(item.ubicacion)"                                
-                                >{{ item.nombre }}</td>
+                                    @click="handleUbic({lat:item.latitud,lng:item.longitud})"                                
+                                >{{ item.user.fullName }}</td>
                               </tr>
                         
                             </tbody>
@@ -71,17 +81,42 @@
           <div class="container w-[100%] lg:w-[60%] h-[60vh] lg:h-auto  p-3 lg:p-0 border-[1px] ">
           <InitialMap ref="sendUbiRef"/>
           </div>
+          <!-- <button class="w-96 my-4 mx-6 bg-red-500" @click="getSignals" >OPEN</button> -->
     </div>
 
 </template>
 
 <script setup="ts">
+import { useGeolocalizacionStore } from '~/stores/geolocalizacion'
 
+const geolocalizacionST=useGeolocalizacionStore()
 const sendUbiRef = ref(null)
 
 const handleUbic=(u) => {
   sendUbiRef.value.changeUbi(u)
 }
+
+const datosUsuario=ref([])
+
+
+const getSignals = async () => {
+  const { data , error } = await useNuxtApp().$apiClient.getSignal();
+  if (error.value) {
+    console.log(error.value);
+  } else {
+    const { data, error } = await useNuxtApp().$apiClient.getLastLocation();
+     if(error.value){
+      console.log(error.value);
+     }else{
+        geolocalizacionST.setgeousuarios(data.value.data)
+     }
+  }
+}
+
+
+onMounted(() => {
+  getSignals()
+})
 
 const listaProvedores=[
   {nombre:'Javier Olarte',ubicacion: { lat: -12.070430252622687, lng: -77.0350761713482 } },

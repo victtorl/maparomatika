@@ -3,7 +3,6 @@ import { defineStore } from "pinia";
 export const useColorStore=defineStore("color-store",() => {
 
     
-
    const colorstore = ref({
       bg1:'#FFFFFF',
       bg2:'',
